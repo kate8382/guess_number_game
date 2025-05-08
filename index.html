@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Game</title>
+    <link href="./css/normalize.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+    <link href="./css/game.css" rel="stylesheet">
+    <link href="./css/alert.css" rel="stylesheet">
+    <link href="./css/media.css" rel="stylesheet">
+    <script src="./main.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="main flex" id="main">
+            <h1 class="main__title section-title">Игра в&nbsp;числа</h1>
+            <h2 class="main__section-title section-title">Как играть?</h2>
+
+            <ol class="main__description flex">
+                <li class="main__description-item">Загаданное число&nbsp;&mdash; от&nbsp;1&nbsp;до&nbsp;100</li>
+                <li class="main__description-item">Необходимо угадать число за&nbsp;1&nbsp;минуту</li>
+                <li class="main__description-item">Максимальное количество попыток&nbsp;&mdash; 5&nbsp;за&nbsp;игру</li>
+                <li class="main__description-item">Можете воспользоваться 3&nbsp;подсказками</li>
+                <li class="main__description-item">Если уверенны, жмем кнопку Угадать</li>
+            </ol>
+
+            <h3 class="main__section-title section-title">Начинаем игру?) Удачи!</h3>
+            <button class="main__btn btn-reset" id="start-btn">Начать игру</button>
+        </div>
+
+        <!-- Модальное окно с игрой -->
+        <div class="modal-game flex" id="modal-game">
+            <div class="game flex" id="game">
+                <div class="game-sensors flex">
+                    <div class="timer" id="timer"></div>
+                    <div class="result-indicator" id="result-indicator">
+                        <div class="result" id="result"></div>
+                    </div>
+                </div>
+
+                <div class="game-fields flex">
+                    <div class="secret-number flex" id="secret-number">
+                        <h2 class="secret-number__title section-title">Секретное число</h2>
+                        <div class="secret-number__card" id="secret-card">
+                            <div class="secret-number__card-front flex"></div>
+                            <div class="secret-number__card-back flex"></div>
+                        </div>
+                    </div>
+
+                    <div class="help flex" id="help">
+                        <h2 class="help__title section-title">Подсказки</h2>
+                        <div class="help__list flex" id="help-list">
+                            <button class="help__btn-1 help__btn btn-reset" id="help-btn-1">
+                                <span class="front flex" data-default="Подсказка 1">Подсказка 1</span>
+                                <span class="back flex"></span>
+                            </button>
+                            <button class="help__btn-2 help__btn btn-reset" id="help-btn-2">
+                                <span class="front flex" data-default="Подсказка 2">Подсказка 2</span>
+                                <span class="back flex"></span>
+                            </button>
+                            <button class="help__btn-3 help__btn btn-reset" id="help-btn-3">
+                                <span class="front flex" data-default="Подсказка 3">Подсказка 3</span>
+                                <span class="back flex"></span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form flex" id="form">
+                        <h2 class="form__title section-title">Мое число</h2>
+                        <div class="form__input-wrapper flex">
+                            <button class="form__input-btn btn-reset" id="decrease-btn" type="button">-</button>
+                            <input class="form__input" id="guess-input" type="number" placeholder="0" min="1" max="100">
+                            <button class="form__input-btn btn-reset" id="increase-btn" type="button">+</button>
+                        </div>
+                        <button class="form__btn btn-reset" id="form-btn">Угадать</button>
+                    </div>
+                </div>
+
+                <!-- Модальное окно для alert-сообщений -->
+                <div class="alert-modal flex" id="alert-modal">
+                    <div class="alert-modal__content flex">
+                        <p class="alert-modal__message" id="alert-message"></p>
+                        <button class="alert-modal__btn btn-reset" id="alert-btn">OK</button>
+                    </div>
+                </div>
+
+                <div class="game-btn flex" id="game-btn">
+                    <button class="game-btn__btn btn-reset" id="play-btn">Сыграть еще раз</button>
+                    <button class="game-btn__btn btn-reset" id="exit-btn">Выйти</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

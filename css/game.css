@@ -1,0 +1,428 @@
+.modal-game {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 1;
+  width: 100%;
+  height: 100vh;
+  background-image: url('../img/image1.jpg');
+  background-color: rgba(255, 255, 255, 0.4);
+  background-blend-mode: lighten;
+  /* Смешивание цвета с изображением */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.game {
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+  height: auto;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 20px 50px;
+}
+
+.game-sensors {
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 30%;
+  height: auto;
+  margin-left: auto;
+}
+
+.timer {
+  width: 60px;
+  height: 60px;
+  padding: 5px;
+  font-size: 40px;
+  font-weight: 700;
+  text-align: center;
+  color: var(--blue-color);
+  border-radius: 10px;
+  background-image: radial-gradient(var(--white-color), var(--silver-color), var(--text-color));
+}
+
+.result-indicator {
+  position: relative;
+  z-index: 1;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-image: conic-gradient(var(--green-color) 0% 100%, transparent 0% 100%);
+}
+
+.result {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  padding: 5px;
+  border-radius: 50%;
+  font-size: 40px;
+  font-weight: 700;
+  text-align: center;
+  color: var(--green-color);
+  background-image: radial-gradient(var(--white-color) 30%, var(--silver-color), var(--green-color), var(--text-color));
+  background-clip: border-box;
+}
+
+.game-fields {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: auto;
+}
+
+.secret-number {
+  align-items: center;
+  width: 30%;
+  height: 100%;
+}
+
+/* Стили для карточки */
+.secret-number__card {
+  position: relative;
+  transition: transform 0.6s ease-in-out;
+  /* Для 3D-эффекта */
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.secret-number__card,
+.form__input {
+  aspect-ratio: 1 / 1;
+  /* Пропорции 1:1 */
+  height: 200px;
+  /* Ограничение по высоте */
+}
+
+/* Лицевая сторона карточки */
+.secret-number__card-front {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Скрываем обратную сторону */
+  backface-visibility: hidden;
+  border-radius: 15px;
+  background-image: url('../img/questions.png'), radial-gradient(var(--white-color), var(--silver-color), var(--dark-grey-color), var(--text-color));
+  background-repeat: no-repeat;
+  background-size: 80%, contain;
+  background-position: center;
+}
+
+/* Обратная сторона карточки */
+.secret-number__card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  backface-visibility: hidden;
+  /* Поворачиваем обратную сторону */
+  transform: rotateY(180deg);
+  border-radius: 15px;
+  font-size: 80px;
+  font-weight: 700;
+  color: var(--blue-color);
+  text-shadow: var(--green-color) 5px 6px 5px;
+  background-image: radial-gradient(var(--white-color), var(--silver-color), var(--green-color), var(--text-color));
+}
+
+.secret-number__card-back.error {
+  text-shadow: var(--red-color) 5px 6px 5px;
+  background-image: radial-gradient(var(--white-color), var(--silver-color), var(--red-color), var(--text-color));
+}
+
+/* Стили для карточки в открытом состоянии */
+.secret-number__card.open {
+  transform: rotateY(180deg);
+  /* Разворот карточки */
+}
+
+.help {
+  justify-content: space-between;
+  align-items: center;
+  width: 30%;
+  height: 100%;
+}
+
+.help__list {
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+
+/* Стили для кнопки */
+.help__btn {
+  position: relative;
+  width: 100%;
+  height: 30%;
+  border-radius: 15px;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  transition: transform 0.4s ease;
+}
+
+.help__btn:hover {
+  transform: scale(1.05);
+  /* Лёгкий эффект увеличения */
+}
+
+.help__btn.flipped {
+  transform: rotateY(180deg);
+  /* Анимация разворота */
+}
+
+/* Передняя сторона кнопки */
+.help__btn .front {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  justify-content: center;
+  align-items: center;
+  backface-visibility: hidden;
+  width: 100%;
+  height: 100%;
+  padding: 10px 10px 10px 30px;
+  border-radius: 15px;
+  font-weight: 700;
+  font-size: 20px;
+  text-align: center;
+  background-image: url('../img/lamp.png'), radial-gradient(var(--white-color) 30%, var(--silver-color), var(--dark-grey-color), var(--text-color));
+  background-repeat: no-repeat;
+  background-size: 20%, contain;
+  background-position: left, center;
+  transition: background-image 0.3s ease-in-out;
+}
+
+.help__btn-1 .front {
+  color: var(--green-color);
+}
+
+.help__btn-1:active .front {
+  background-image: radial-gradient(var(--white-color) 30%, var(--silver-color), var(--green-color), var(--text-color));
+}
+
+.help__btn-2 .front {
+  color: var(--blue-color);
+}
+
+.help__btn-2:active .front {
+  background-image: radial-gradient(var(--white-color) 30%, var(--silver-color), var(--blue-color), var(--text-color));
+}
+
+.help__btn-3 .front {
+  color: var(--yellow-color);
+}
+
+.help__btn-3:active .front {
+  background-image: radial-gradient(var(--white-color) 30%, var(--silver-color), var(--yellow-color), var(--text-color));
+}
+
+/* Задняя сторона кнопки */
+.help__btn .back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  border-radius: 15px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  color: var(--text-color);
+}
+
+.help__btn-1 .back {
+  background-image: radial-gradient(var(--white-color) 30%, var(--silver-color), var(--green-color));
+}
+
+.help__btn-2 .back {
+  background-image: radial-gradient(var(--white-color) 30%, var(--silver-color), var(--blue-color));
+}
+
+.help__btn-3 .back {
+  background-image: radial-gradient(var(--white-color) 30%, var(--silver-color), var(--yellow-color));
+}
+
+.form {
+  align-items: center;
+  width: 30%;
+  height: 100%;
+}
+
+/* Стили для пользовательских кнопок увеличения/уменьшения числа */
+.form__input-wrapper {
+  position: relative;
+  flex-direction: row;
+  flex: 1;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.form__input {
+  width: 100%;
+  padding: 10px;
+  font-size: 80px;
+  font-weight: 700;
+  border-radius: 15px;
+  border: none;
+  outline: none;
+  color: var(--blue-color);
+  text-align: center;
+  background-image: radial-gradient(var(--white-color), var(--silver-color), var(--dark-grey-color), var(--text-color));
+}
+
+.form__input::placeholder {
+  color: var(--blue-color);
+  opacity: 0.5;
+}
+
+.form__input.success {
+  text-shadow: var(--green-color) 5px 6px 5px;
+  background-image: radial-gradient(var(--white-color), var(--silver-color), var(--green-color), var(--text-color));
+}
+
+.form__input.error {
+  text-shadow: var(--red-color) 5px 6px 5px;
+  background-image: radial-gradient(var(--white-color), var(--silver-color), var(--red-color), var(--text-color));
+}
+
+/* Скрываем стрелочки в инпуте числа */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Универсальное решение */
+input[type="number"] {
+  appearance: textfield;
+}
+
+.form__input-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-color);
+  border: none;
+  border-radius: 50%;
+  background-image: radial-gradient(var(--white-color), var(--silver-color));
+  transition: background-image 0.3s ease;
+}
+
+.form__input-btn:hover {
+  background-image: radial-gradient(var(--white-color), var(--grey-color));
+}
+
+#decrease-btn {
+  left: 5px;
+  color: var(--red-color);
+}
+
+#decrease-btn:active {
+  background-image: radial-gradient(var(--white-color), var(--silver-color), var(--red-color));
+}
+
+#increase-btn {
+  right: 5px;
+  color: var(--green-color);
+}
+
+#increase-btn:active {
+  background-image: radial-gradient(var(--white-color), var(--silver-color), var(--green-color));
+}
+
+.form__btn {
+  width: 50%;
+  min-height: 40px;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  color: var(--blue-color);
+  background-image: radial-gradient(var(--white-color), var(--silver-color), var(--dark-grey-color), var(--text-color));
+  transition: background-image 0.3s ease-in-out;
+}
+
+.form__btn:hover {
+  background-image: radial-gradient(var(--white-color) 30%, var(--silver-color), var(--text-color));
+}
+
+.form__btn:active {
+  background-image: radial-gradient(var(--white-color) 30%, var(--silver-color), var(--blue-color), var(--text-color));
+}
+
+.game-btn {
+  display: none;
+  gap: 10px;
+  width: 30%;
+  height: auto;
+}
+
+.game-btn__btn {
+  align-self: center;
+  width: 70%;
+  min-height: 40px;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  background-image: radial-gradient(var(--white-color) 30%, var(--silver-color), var(--dark-grey-color), var(--text-color));
+  transition: background-image 0.3s ease-in-out;
+}
+
+.game-btn__btn:hover {
+  background-image: radial-gradient(var(--white-color) 30%, var(--silver-color), var(--text-color));
+}
+
+#play-btn {
+  color: var(--green-color);
+}
+
+#play-btn:active {
+  background-image: radial-gradient(var(--white-color) 30%, var(--silver-color), var(--green-color), var(--text-color));
+}
+
+#exit-btn {
+  color: var(--red-color);
+  transition: color 0.3s ease-in-out;
+}
+
+#exit-btn:active {
+  background-image: radial-gradient(var(--white-color) 30%, var(--silver-color), var(--red-color), var(--text-color));
+}

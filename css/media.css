@@ -1,0 +1,230 @@
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 20px;
+  }
+
+  .main {
+    padding: 80px 40px 40px 80px;
+  }
+
+  .main__title {
+    font-size: 22px;
+  }
+
+  .main__description {
+    font-size: 16px;
+  }
+
+  .main__btn {
+    width: 120px;
+    min-height: 40px;
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  .game {
+    padding: 10px;
+  }
+
+  .game-sensors {
+    width: 40%;
+  }
+
+  .timer {
+    width: 50px;
+    height: 50px;
+    font-size: 36px;
+  }
+
+  .result-indicator {
+    width: 70px;
+    height: 70px;
+  }
+
+  .result {
+    width: 50px;
+    height: 50px;
+    font-size: 36px;
+  }
+
+  .game-fields {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .secret-number {
+    align-self: flex-start;
+  }
+
+  .secret-number,
+  .form {
+    width: 45%;
+    height: auto;
+  }
+
+  .secret-number__card,
+  .form__input {
+    height: 180px;
+  }
+
+  .help {
+    order: 3;
+    width: 100%;
+    height: auto;
+  }
+
+  .help__list {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .help__btn {
+    width: 32%;
+    min-height: 60px;
+  }
+
+  .help__btn .front {
+    padding: 8px 8px 8px 15px;
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  .help__btn .back {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .form__btn {
+    width: 40%;
+    padding: 8px;
+    font-weight: 500;
+  }
+
+  .game__btn {
+    width: 50%;
+  }
+
+  .game-btn__btn {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    font-weight: 500;
+  }
+}
+
+@media (max-width: 560px) {
+  .section-title {
+    font-size: 16px;
+  }
+
+  .main {
+    padding: 80px 20px 20px 40px;
+  }
+
+  .main__title {
+    font-size: 20px;
+  }
+
+  .main__description {
+    font-size: 12px;
+  }
+
+  .main__btn {
+    padding: 8px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .game {
+    gap: 15px;
+  }
+
+  .game-sensors {
+    width: 50%;
+  }
+
+  .timer,
+  .result {
+    align-self: center;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+  }
+
+  .result-indicator {
+    width: 55px;
+    height: 55px;
+  }
+
+  .secret-number__card,
+  .form__input {
+    height: 120px;
+  }
+
+  .secret-number__card-back,
+  .form__input {
+    padding: 8px;
+    font-size: 50px;
+    font-weight: 500;
+  }
+
+  .secret-number__card-back {
+    text-shadow: var(--green-color) 4px 2px 4px;
+  }
+
+  .secret-number__card-back.error {
+    text-shadow: var(--red-color) 4px 2px 4px;
+  }
+
+  .help__list {
+    flex-wrap: wrap;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .help__btn {
+    width: 45%;
+  }
+
+  .help__btn .front {
+    font-size: 14px;
+  }
+
+  .form__input.success {
+    text-shadow: var(--green-color)4px 2px 4px;
+  }
+
+  .form__input.error {
+    text-shadow: var(--red-color) 4px 2px 4px;
+  }
+
+  .form__input-btn {
+    width: 15px;
+    height: 15px;
+    font-size: 10px;
+    font-weight: 500;
+  }
+
+  .form__btn {
+    width: 50%;
+    font-size: 14px;
+  }
+
+  .game-btn {
+    width: 40%;
+  }
+
+  .game-btn__btn {
+    font-size: 14px;
+
+  }
+
+  .alert-modal__message {
+    font-size: 14px;
+  }
+
+  .alert-modal__btn {
+    font-size: 14px;
+  }
+}
