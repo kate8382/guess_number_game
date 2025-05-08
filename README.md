@@ -6,6 +6,20 @@ This project is a practical assignment for self-study of the JavaScript "Advance
 
 This is a simple game where the user needs to guess the number chosen by the computer. The project is developed using HTML, CSS, and JavaScript.
 
+## Screenshots
+
+### Desktop Version (1024px)
+![Desktop Version](./screenshots/image1.png)
+
+### Adaptive Design (768px) with Info Alert
+![Adaptive Design](./screenshots/image2.png)
+
+### Victory Alert (560px)
+![Victory Alert](./screenshots/image3.png)
+
+### End of Game with Loss (560px)
+![End of Game](./screenshots/image4.png)
+
 ## Access the Game
 
 You can play the game online through GitHub Pages:
