@@ -10,8 +10,8 @@
   height: 100vh;
   background-image: url('../img/image1.jpg');
   background-color: rgba(255, 255, 255, 0.4);
-  background-blend-mode: lighten;
   /* Смешивание цвета с изображением */
+  background-blend-mode: lighten;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -102,10 +102,10 @@
 
 .secret-number__card,
 .form__input {
-  aspect-ratio: 1 / 1;
   /* Пропорции 1:1 */
-  height: 200px;
+  aspect-ratio: 1 / 1;
   /* Ограничение по высоте */
+  height: 200px;
 }
 
 /* Лицевая сторона карточки */

@@ -46,7 +46,6 @@
     modalGame.style.display = 'flex';
 
     const randomNumber = Math.floor(Math.random() * 100) + 1;
-    console.log('Загаданное число:', randomNumber);
 
     // Установка начального количества попыток
     result.textContent = '5';
@@ -77,7 +76,6 @@
       if (gameState.isEnterPressed) return; // Игнорируем, если Enter уже был нажат
 
       if (gameState.isAlertActive) {
-        console.log('Алерт активен, ввод игнорируется');
         return; // Игнорируем ввод, если активен алерт
       }
 
@@ -96,28 +94,23 @@
       guessInput.focus(); // Устанавливаем фокус на инпут при клике
     });
 
-    // Добавление логирования для отладки множественного срабатывания Enter
     // В обработчике keydown для guessInput
     guessInput.addEventListener('keydown', (event) => {
       console.log('keydown event:', event.key, 'isEnterPressed:', gameState.isEnterPressed, 'isAlertActive:', gameState.isAlertActive);
 
       if (gameState.isEnterPressed) {
-        console.log('Enter уже был нажат, игнорируем событие.');
-        return; // Игнорируем, если Enter уже был нажат
+        return;
       }
 
       if (gameState.isAlertActive) {
-        console.log('Алерт активен, ввод игнорируется.');
-        return; // Игнорируем ввод, если активен алерт
+        return;
       }
 
       if (event.key === 'Enter') {
-        console.log('Enter нажат, обрабатываем событие.');
         gameState.isEnterPressed = true;
-        formBtn.dispatchEvent(new Event('click')); // Симулируем клик по кнопке "Угадать"
+        formBtn.dispatchEvent(new Event('click'));
         setTimeout(() => {
           gameState.isEnterPressed = false;
-          console.log('Сбрасываем флаг isEnterPressed.');
         }, 200);
       }
     });
@@ -130,12 +123,10 @@
 
   function showAlert(message, type = 'info') {
     if (gameState.isAlertActive) {
-      console.log('Алерт уже активен, новое сообщение не отображается:', message);
       return;
     }
 
     gameState.currentAlertType = type;
-    console.log('showAlert вызвана с сообщением:', message);
 
     // Останавливаем таймер при любом алерте
     clearInterval(timerInterval);
@@ -158,7 +149,6 @@
     }, 100);
 
     const closeModal = () => {
-      console.log('Модальное окно закрыто');
       alertModal.style.display = 'none';
       alertModalContent.classList.remove('alert-win', 'alert-lose', 'alert-info');
       alertBtn.blur();
@@ -182,7 +172,7 @@
     };
 
     const handleKeydown = (event) => {
-      if (gameState.isEnterPressed) return; // Игнорируем, если Enter уже был нажат
+      if (gameState.isEnterPressed) return;
 
       if (event.key === 'Escape' || event.key === 'Enter') {
         if (gameState.isAlertActive) {
@@ -207,7 +197,6 @@
 
   // Функция для запуска таймера
   function startTimer(duration, onEnd) {
-    console.log('Таймер запущен на', duration, 'секунд');
     clearInterval(timerInterval); // Очищаем предыдущий таймер
     timer.textContent = duration;
 
@@ -217,7 +206,6 @@
 
     timerInterval = setInterval(() => {
       if (gameState.isAlertActive) {
-        console.log('Таймер приостановлен, так как активен алерт');
         return; // Прерываем выполнение, если активен алерт
       }
 
@@ -311,8 +299,6 @@
     const hintIndex = parseInt(button.id.split('-')[2], 10) - 1; // Получаем индекс подсказки
     const hints = generateHints(randomNumber); // Генерируем подсказки
     transformButtonToHint(button, hints[hintIndex]);
-
-    // Возвращаем фокус на инпут после открытия подсказки
     guessInput.focus();
   }
 
@@ -361,7 +347,7 @@
       return;
     } else {
       showAlert(userGuess > randomNumber ? 'Загаданное число меньше!' : 'Загаданное число больше!', 'info');
-      startTimer(60, handleTimerEnd); // Перезапускаем таймер
+      startTimer(60, handleTimerEnd);
       guessInput.focus();
     }
 
@@ -400,9 +386,8 @@
     updateIndicator(0, 5); // Обновляем индикатор до 0%
     guessInput.blur();
     gameBtns.style.display = 'flex';
-    // Заменяем вызов replayGame на startGame
+
     replayBtn.addEventListener('click', () => {
-      console.log('Перезапуск игры через startGame');
       resetSettings(); // Сбрасываем настройки перед началом новой игры
       startGame();
     });
@@ -418,7 +403,6 @@
 
   // Функция для сброса настроек
   function resetSettings() {
-    console.log('Сбрасываем настройки игры');
     clearInterval(timerInterval);
     result.textContent = '5'; // Сбрасываем количество попыток
     resultIndicator.style.backgroundImage = '';
@@ -458,7 +442,7 @@
   function addMobileEventListeners() {
     // Обработчик для кнопки "Угадать"
     formBtn.addEventListener('pointerdown', () => {
-      formBtn.dispatchEvent(new Event('click')); // Симулируем клик по кнопке "Угадать"
+      formBtn.dispatchEvent(new Event('click'));
     });
 
     // Обработчик для кнопок "+" и "-"
@@ -478,8 +462,8 @@
 
     // Обработчик для инпута
     guessInput.addEventListener('pointerdown', (event) => {
-      event.preventDefault(); // Предотвращаем конфликт с другими событиями
-      guessInput.focus(); // Устанавливаем фокус на инпут при касании
+      event.preventDefault();
+      guessInput.focus();
     });
   }
 
