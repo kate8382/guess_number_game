@@ -74,10 +74,7 @@
     // Добавляем обработчик для клавиши Enter
     guessInput.addEventListener('keydown', (event) => {
       if (gameState.isEnterPressed) return; // Игнорируем, если Enter уже был нажат
-
-      if (gameState.isAlertActive) {
-        return; // Игнорируем ввод, если активен алерт
-      }
+      if (gameState.isAlertActive) return; // Игнорируем ввод, если активен алерт
 
       if (event.key === 'Enter') {
         gameState.isEnterPressed = true;
@@ -172,7 +169,7 @@
     };
 
     const handleKeydown = (event) => {
-      if (gameState.isEnterPressed) return;
+      if (gameState.isEnterPressed) return; //
 
       if (event.key === 'Escape' || event.key === 'Enter') {
         if (gameState.isAlertActive) {
@@ -257,13 +254,12 @@
   }
 
   // Функция для открытия карточки с загаданным числом
-  function openSecretCard(number) {
+  function openSecretCard(number, isLose = false) {
     const cardBack = secretCard.querySelector('.secret-number__card-back');
-
-    if (result.textContent === '0') {
+    cardBack.classList.remove('error');
+    if (isLose) {
       cardBack.classList.add('error');
     }
-
     cardBack.textContent = number;
     secretCard.classList.add('open');
   }
@@ -380,7 +376,7 @@
   function endGame(message, number, type) {
     clearInterval(timerInterval); // Останавливаем таймера
     showAlert(message, type); // Показываем сообщение
-    openSecretCard(number); // Открываем карточку с загаданным числом
+    openSecretCard(number, type === 'lose'); // Передаём флаг проигрыша
     startTimer(0, () => { }); // Останавливаем таймер
     result.textContent = '0'; // Устанавливаем количество попыток в 0
     updateIndicator(0, 5); // Обновляем индикатор до 0%

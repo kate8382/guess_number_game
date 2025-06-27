@@ -2,7 +2,7 @@
 
 ## Description
 
-This project is a practical assignment for self-study of the JavaScript "Advanced Level" course, focusing on a deeper understanding of the topics "Browser Events" and "Execution Context."
+This project is a practical assignment for self-study of the JavaScript "Advanced Level" course, focusing on a deeper understanding of the topics "Browser Events", "Execution Context", and "Classes". As part of this work, the file `class.js` was added.
 
 This is a simple game where the user needs to guess the number chosen by the computer. The project is developed using HTML, CSS, and JavaScript.
 
@@ -19,6 +19,10 @@ This is a simple game where the user needs to guess the number chosen by the com
 
 ### End of Game with Loss (560px)
 ![End of Game](./screenshots/image4.png)
+
+### Comparison: Procedural vs OOP Approach
+![Comparison of main.js and class.js](./screenshots/image5.png)
+*The project supports both procedural (main.js) and OOP (class.js) approaches. You can switch between them by commenting/uncommenting the corresponding script tag in `index.html`.*
 
 ## Access the Game
 
