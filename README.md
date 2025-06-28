@@ -20,9 +20,10 @@ This is a simple game where the user needs to guess the number chosen by the com
 ### End of Game with Loss (560px)
 ![End of Game](./screenshots/image4.png)
 
-### Comparison: Procedural vs OOP Approach
-![Comparison of main.js and class.js](./screenshots/image5.png)
-*The project supports both procedural (main.js) and OOP (class.js) approaches. You can switch between them by commenting/uncommenting the corresponding script tag in `index.html`.*
+## Refactoring Story
+
+Read about the transition from procedural to OOP style and the main challenges I faced:
+[OOP vs Procedural: My Refactoring Story](./OOP-vs-Procedural.md)
 
 ## Access the Game
 
