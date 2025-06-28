@@ -23,7 +23,8 @@ This is a simple game where the user needs to guess the number chosen by the com
 ## Refactoring Story
 
 Read about the transition from procedural to OOP style and the main challenges I faced:
-[OOP vs Procedural: My Refactoring Story](./OOP-vs-Procedural.md)
+- [OOP vs Procedural: My Refactoring Story (Wiki version)](https://github.com/kate8382/guess_number_game/wiki/OOP%E2%80%90vs%E2%80%90Procedural)
+- [OOP vs Procedural: My Refactoring Story (Markdown file)](./OOP-vs-Procedural.md)
 
 ## Access the Game
 
